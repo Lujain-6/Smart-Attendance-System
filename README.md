@@ -33,6 +33,7 @@ The system is deployed in **Google Colab** using a sequential, highly-optimized 
 ```text
 [Input Data] ➡️ [Data Loading (OpenCV)] ➡️ [Ground Truth Mapping] 
      ➡️ [YOLOv8m Architecture] ➡️ [Post-Processing (Gaussian Blur ROI)] ➡️ [Final Count Output]
+```
 
 * **Ground Truth Processing:** Reads normalized annotation coordinates and calculates total line items per file to map real counts against input visual data.  
 * **YOLOv8 Object Detection:** Extracts spatial and contextual features to define head coordinates even under crowd occlusion.  
@@ -47,31 +48,32 @@ The system is deployed in **Google Colab** using a sequential, highly-optimized 
 ### Hyperparameter Settings:
 | Parameter | Value | Parameter | Value |
 | :--- | :--- | :--- | :--- |
-| **Image Size** | 640 × 640 | **Initial Learning Rate** | 0.01 |
+| **Image Size** | 640 x 640 | **Initial Learning Rate** | 0.01 |
 | **Batch Size** | 16 | **Final Learning Rate** | 0.00001 |
 | **Workers** | 45 | **Momentum** | 0.937 |
 
 ### Data Augmentation Techniques:
 To ensure high generalization against real-world variations without adding raw images, the following online augmentations were mapped:  
 * **Hue:** 0.015 | **Saturation:** 0.7 | **Brightness:** 0.4  
-* **Rotation:** 5.0° | **Translation:** 0.1 | **Scaling:** 0.5  
+* **Rotation:** 5.0 degrees | **Translation:** 0.1 | **Scaling:** 0.5  
 * **Horizontal Flip:** 0.5 (50% probability)  
 
 ---
 
 ## 📊 Data & Dataset Shift
 Initially, the *Classroom-Data* dataset was selected. However, during implementation, we shifted to the **SCUT-HEAD Dataset (Part A)** because the original dataset lacked location-based bounding boxes. SCUT-HEAD provides precise coordinate layout masks, teaching the model *where* the head is rather than just guessing numbers.  
-* **Total Class Images Used:** 2000 images (Average resolution: $1076 \times 605$ pixels).  
-* **Split Layout:** Training (1100 images) | Validation (400 images) | Testing (500 images).  
+* **Total Class Images Used:** 2000 images (Average resolution: 1076 x 605 pixels).  
+* **Split Layout:** Training (1100 images) \| Validation (400 images) \| Testing (500 images).  
 
 ---
 
 ## 📈 Experimental Results & Metrics
 Evaluated across 500 unseen test images, the system demonstrated phenomenal robustness under dynamic real-world classroom conditions:  
-* **Mean Absolute Error (MAE):** 1.49 *(Deviation of approx. 1-2 people per class)* * **Root Mean Square Error (RMSE):** 2.81  
-* **Precision:** 0.971 | **Recall:** 0.986 | **F1-Score:** 0.979  
-* **Strict Tolerance Margin (Within ±3 people):** 87.2% Accuracy  
-* **Loose Tolerance Margin (Within ±5 people):** 94.2% Accuracy  
+* **Mean Absolute Error (MAE):** 1.49 (Deviation of approx. 1-2 people per class)
+* **Root Mean Square Error (RMSE):** 2.81  
+* **Precision:** 0.971 \| **Recall:** 0.986 \| **F1-Score:** 0.979  
+* **Strict Tolerance Margin (Within +/-3 people):** 87.2% Accuracy  
+* **Loose Tolerance Margin (Within +/-5 people):** 94.2% Accuracy  
 * **Exact Matches:** 231 Images  
 * **Inference Speed:** 0.02 seconds (25ms) per image, proving real-time readiness.  
 
@@ -125,5 +127,4 @@ The pipeline inside `Computer_Vision_Project_Code.ipynb` executes via these step
 
 ## 📜 References
 1. Chan, A. B., et al. (2008). *Privacy preserving crowd monitoring: Counting people without people models or tracking.* CVPR.  
-2. Li, Y., et al. (2018). *CSRNet: Dilated Convolutional Neural Networks for Understanding Highly Congested Scenes.* CVPR.  
-3.
+2. Li, Y., et al. (201
