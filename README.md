@@ -127,4 +127,6 @@ The pipeline inside `Computer_Vision_Project_Code.ipynb` executes via these step
 
 ## 📜 References
 1. Chan, A. B., et al. (2008). *Privacy preserving crowd monitoring: Counting people without people models or tracking.* CVPR.  
-2. Li, Y., et al. (201
+2. Li, Y., et al. (2018). *CSRNet: Dilated Convolutional Neural Networks for Understanding Highly Congested Scenes.* CVPR.  
+3. Ding, Q., & Yu, C. (2024). *A Deep Learning-Based Method for Classroom Crowd Counting and Localization.* Springer.  
+4. Parul University. (2025). *An implementation on real-time attendance monitoring for large scale group.* IET.
